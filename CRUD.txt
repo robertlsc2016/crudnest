@@ -1,0 +1,11 @@
+ROTAS:
+
+- LER TODOS USUÁRIOS [getAll()] - ok
+- LER USUÁRIO ESPECÍFICO DE ACORDO COM O PARÂMETRO PASSADO [findOneById()]
+
+- CRIAR USUÁRIO [create()] - ok
+
+- EDITAR USUÁRIO [patch()] - 
+
+- APAGAR USUÁRIO [delete()]
+
