@@ -6,7 +6,7 @@ import { UserServiceModule } from './services/use-cases/users/user.services.modu
 
 
 @Module({
-  imports: [ConnectionModule],
+  imports: [ConnectionModule, DataServiceModule],
   controllers: [],
   providers: [],
 })

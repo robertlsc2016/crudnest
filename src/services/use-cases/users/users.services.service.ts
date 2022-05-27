@@ -23,7 +23,15 @@ export class UsersServices{
     }
 
     async postCreateUser(createUserDto: CreateUserDto){
-        return await this.usersModel.create(createUserDto)
+
+        const id = this.usersModel.findOne({id: createUserDto.id})
+        
+        if(id){
+            return 'Já existe usuário com esse id'
+        } else{
+            return await this.usersModel.create(createUserDto)
+        }
+                
     }
 
     async patchUpdateUser(params, updateUserDto: UpdateUserDto){
@@ -39,6 +47,13 @@ export class UsersServices{
             {new: true}
         ).exec()
 
+    }
+
+    async deleteUser(params)
+    {
+        return await this.usersModel.findOneAndRemove(
+            {id: params.id}
+        ).exec()
     }
     
 }
