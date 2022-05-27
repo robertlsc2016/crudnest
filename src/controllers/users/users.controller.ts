@@ -22,6 +22,9 @@ export class UsersController{
 
     @Post('createuser')
     async postCreateUser(@Body() createUserDto: CreateUserDto){
+
+        
+
         return await this.usersServices.postCreateUser(createUserDto)
     }
 
@@ -30,9 +33,9 @@ export class UsersController{
         return await this.usersServices.patchUpdateUser(params, updateUserDto)
     }
 
-    @Delete()
-    async deleteUser(){
-        return await 'deletar user'
+    @Delete('deleteuser/:id')
+    async deleteUser(@Param() params){
+        return await this.usersServices.deleteUser(params)
 
     }
 
