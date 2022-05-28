@@ -23,15 +23,23 @@ export class UsersServices{
     }
 
     async postCreateUser(createUserDto: CreateUserDto){
+    
+        const id = await this.usersModel.findOne(
+            {id: createUserDto.id},
+            {raw: true}
+        )
 
-        const id = this.usersModel.findOne({id: createUserDto.id})
-        
-        if(id){
-            return 'Já existe usuário com esse id'
-        } else{
+        if(id == null){
             return await this.usersModel.create(createUserDto)
+        } else{
+            return '{já existe usuário com esse id}'
         }
-                
+        
+        console.log(id)
+        
+        // console.log(id)
+        // console.log(id.map((a) => {console.log(a.id)}))
+
     }
 
     async patchUpdateUser(params, updateUserDto: UpdateUserDto){
